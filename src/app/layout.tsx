@@ -1,3 +1,4 @@
+import { openSans } from '@/lib/fonts'
 import type { Metadata } from 'next'
 import '../config/globals.css'
 
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body className={openSans.className}>
+        {children}
+      </body>
     </html>
   )
 }
