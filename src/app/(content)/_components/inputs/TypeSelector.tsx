@@ -65,7 +65,7 @@ function OptionButton({
     <Button
       type="button"
       variant="ghost"
-      className={cn('relative flex-1 z-10 dark:hover:bg-transparent dark:hover:text-foreground', selectedValue === option && 'font-semibold')}
+      className={cn('relative flex-1 z-10 hover:bg-transparent hover:text-foreground', selectedValue === option && 'font-semibold')}
       onClick={() => handleSelect(option)}
     >
       <Icon
