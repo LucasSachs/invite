@@ -1,6 +1,7 @@
 import * as z from 'zod'
 
 z.config(z.locales.pt())
+
 z.config({
   customError: (iss) => {
     switch (iss.code) {
