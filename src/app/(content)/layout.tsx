@@ -15,8 +15,10 @@ export default function Layout({ children }: PropsWithChildren) {
           className="hidden md:block"
         />
 
-        <div className="overflow-y-auto bg-background3 rounded-xl px-32.5 py-20">
-          <h1 className={cn(baloo2.className, 'text-foreground2 text-[28px]')}>Crie seu convite</h1>
+        <div className="overflow-y-auto scrollbar-none bg-background3 rounded-xl px-32.5 py-20">
+          <h1 className={cn(baloo2.className, 'text-foreground2 text-[28px] mb-10')}>Crie seu convite</h1>
+
+          {children}
         </div>
       </div>
     </div>
