@@ -3,11 +3,11 @@ import nextVitals from 'eslint-config-next/core-web-vitals'
 import nextTs from 'eslint-config-next/typescript'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
-const eslintConfig = defineConfig([
-  stylistic.configs.recommended,
-
+export default defineConfig([
   ...nextVitals,
   ...nextTs,
+
+  stylistic.configs.recommended,
 
   // Override default ignores of eslint-config-next.
   globalIgnores([
@@ -18,5 +18,3 @@ const eslintConfig = defineConfig([
     'next-env.d.ts',
   ]),
 ])
-
-export default eslintConfig

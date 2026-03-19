@@ -1,11 +1,5 @@
 'use client'
 
-import FormTitle from '@/components/ui/form-title'
-import { Label } from '@/components/ui/label'
-import { PaintbrushVertical } from 'lucide-react'
-import { ColorOption } from './_components/color-option'
-import { ThemeOption } from './_components/theme-option'
-
 import babyImage from '@/assets/images/baby.png'
 import birthdayImage from '@/assets/images/birthday.png'
 import carnavalImage from '@/assets/images/carnaval.png'
@@ -19,9 +13,14 @@ import otherImage from '@/assets/images/other.png'
 import partyImage from '@/assets/images/party.png'
 import santaImage from '@/assets/images/santa.png'
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
+import FormTitle from '@/components/ui/form-title'
+import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
+import { PaintbrushVertical } from 'lucide-react'
 import { Controller, useFormContext } from 'react-hook-form'
 import { EventFormValidatorType } from '../event/validator'
+import { ColorOption } from './_components/color-option'
+import { ThemeOption } from './_components/theme-option'
 
 export function PersonalizationForm() {
   const { control } = useFormContext<EventFormValidatorType>()
@@ -123,31 +122,61 @@ export function PersonalizationForm() {
       </div>
 
       <FieldGroup>
-        <Controller
-          name="style"
-          control={control}
-          render={({ field, fieldState }) => (
-            <Field data-invalid={fieldState.invalid}>
-              <FieldLabel htmlFor="style">
-                Estilo
-              </FieldLabel>
+        <div className="w-1/2">
+          <Controller
+            name="style"
+            control={control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor="style">
+                  Estilo
+                </FieldLabel>
 
-              <div className="flex items-center gap-3">
-                <Switch
-                  id="style"
-                  checked={field.value}
-                  onCheckedChange={field.onChange}
-                />
+                <div className="flex items-center gap-3">
+                  <Switch
+                    id="style"
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
 
-                <Label htmlFor="style">
-                  {field.value ? 'Claro' : 'Escuro'}
-                </Label>
-              </div>
+                  <Label htmlFor="style">
+                    {field.value ? 'Claro' : 'Escuro'}
+                  </Label>
+                </div>
 
-              {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
-            </Field>
-          )}
-        />
+                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+              </Field>
+            )}
+          />
+        </div>
+
+        <div>
+          <Controller
+            name="style"
+            control={control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor="style">
+                  Estilo
+                </FieldLabel>
+
+                <div className="flex items-center gap-3">
+                  <Switch
+                    id="style"
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+
+                  <Label htmlFor="style">
+                    {field.value ? 'Claro' : 'Escuro'}
+                  </Label>
+                </div>
+
+                {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
+              </Field>
+            )}
+          />
+        </div>
       </FieldGroup>
     </div>
   )
