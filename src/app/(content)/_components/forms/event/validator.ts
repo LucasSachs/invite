@@ -26,6 +26,9 @@ export const eventFormValidator = z.object({
 
   style: z
     .boolean(),
+
+  coverPhoto: z
+    .file(),
 })
 
   .refine(({ startDate: startDateAsString }) => {

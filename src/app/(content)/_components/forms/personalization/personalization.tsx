@@ -13,6 +13,7 @@ import otherImage from '@/assets/images/other.png'
 import partyImage from '@/assets/images/party.png'
 import santaImage from '@/assets/images/santa.png'
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
+import { FileInput } from '@/components/ui/file-input'
 import FormTitle from '@/components/ui/form-title'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
@@ -122,7 +123,7 @@ export function PersonalizationForm() {
       </div>
 
       <FieldGroup>
-        <div className="w-1/2">
+        <div className="flex grid grid-cols-[1fr_2fr] items-center">
           <Controller
             name="style"
             control={control}
@@ -132,7 +133,7 @@ export function PersonalizationForm() {
                   Estilo
                 </FieldLabel>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 h-10">
                   <Switch
                     id="style"
                     checked={field.value}
@@ -148,29 +149,17 @@ export function PersonalizationForm() {
               </Field>
             )}
           />
-        </div>
 
-        <div>
           <Controller
-            name="style"
+            name="coverPhoto"
             control={control}
-            render={({ field, fieldState }) => (
+            render={({ fieldState }) => (
               <Field data-invalid={fieldState.invalid}>
-                <FieldLabel htmlFor="style">
-                  Estilo
+                <FieldLabel htmlFor="coverPhoto">
+                  Foto de capa
                 </FieldLabel>
 
-                <div className="flex items-center gap-3">
-                  <Switch
-                    id="style"
-                    checked={field.value}
-                    onCheckedChange={field.onChange}
-                  />
-
-                  <Label htmlFor="style">
-                    {field.value ? 'Claro' : 'Escuro'}
-                  </Label>
-                </div>
+                <FileInput />
 
                 {fieldState.invalid && <FieldError errors={[fieldState.error]} />}
               </Field>
